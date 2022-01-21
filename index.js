@@ -22,18 +22,18 @@ export function render(element, container) {
 export function createStateManager() {
   return {
     states: {},
-    use(object, value) {
-      if (object.key && object.key in this.states) {
-        return this.states[object.key];
-      } else if (object.key) {
-        this.states[object.key] = value;
+    use(key, value) {
+      if (key && key in this.states) {
+        return this.states[key];
+      } else if (key) {
+        this.states[key] = value;
         return value;
       }
       return value;
     },
-    set(object, value) {
-      if (object.key) {
-        this.states[object.key] = value;
+    set(key, value) {
+      if (key) {
+        this.states[key] = value;
         return value;
       }
       return value;
