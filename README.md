@@ -68,9 +68,6 @@ function App(props) {
         children: [
           e("button", {
             children: [`We Have ${this.likes} like(s)`],
-            // The onclick function is the only one present so far,
-            // I will still work more on this project. For now,
-            // this is for testing purposes only.
             onclick: () => this.setState(() => this.likes++),
           }),
         ],
