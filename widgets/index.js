@@ -2,15 +2,19 @@ import { Widget } from "../index.js";
 
 export class VanillaElement extends Widget {
   initState(props) {
-    this.tagName = props.tagName;
-    this.children = props?.children;
-    this.onclick = props?.onclick;
+    this.props = props;
   }
 
   build() {
-    const el = document.createElement(this.tagName);
-    this.children && el.append(...this.children);
-    el.onclick = this.onclick;
+    const el = document.createElement(this.props.tagName);
+    this.props.children && el.append(...this.props.children);
+    for (const key in this.props) {
+      if (key === "tagName" || key === "children") continue;
+      if (Object.hasOwnProperty.call(this.props, key)) {
+        const element = this.props[key];
+        el[key] = this.props[key];
+      }
+    }
     return el;
   }
 }
