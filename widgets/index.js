@@ -1,6 +1,6 @@
 import { Widget } from "../index.js";
 
-class VanillaElement extends Widget {
+export class VanillaElement extends Widget {
   initState(props) {
     this.tagName = props.tagName;
     this.children = props?.children;
