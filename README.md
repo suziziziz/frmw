@@ -31,7 +31,7 @@ Create the following files in the root directory, and paste the following codes 
 ```javascript
 import { Widget, render } from "frmw";
 // There are two of this item, the vanillaElement and VanillaElement
-// The VanillaElement is the function to vanilla HTML elements
+// The VanillaElement is the class to vanilla HTML elements
 // The vanillaElement is a VanillaElement converted to function
 // I recommend to use the function vanillaElement
 import { vanillaElement as e } from "frmw/widgets";
