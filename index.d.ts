@@ -5,6 +5,7 @@ export class Widget {
   private constructor(props: {}): HTMLElement;
   initState(props: {}): void;
   setState(cb: () => void | any): void;
+  build(): HTMLElement;
 }
 
 export function render(element: HTMLElement, container: HTMLElement): void;
