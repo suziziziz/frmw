@@ -17,7 +17,7 @@ export class VanillaElement extends Widget {
         case "children":
           break;
         case "classname":
-          el.classList.add(element);
+          el.setAttribute("class", element);
           break;
 
         default:
