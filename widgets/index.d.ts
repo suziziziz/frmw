@@ -7,5 +7,8 @@ export class VanillaElement extends Widget {
 
 export function vanillaElement<K extends keyof HTMLElementTagNameMap>(
   tagName: K,
-  props: HTMLElementEventMap
+  props: HTMLElementEventMap & {
+    children?: HTMLElement;
+    classname?: string;
+  }
 ): HTMLElementTagNameMap<K>;

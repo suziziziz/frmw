@@ -1,6 +1,6 @@
 export class Widget {
   key: any;
-  widget: HTMLElement;
+  private widget: HTMLElement;
 
   private constructor(props: {}): HTMLElement;
   initState(props: {}): void;
@@ -10,7 +10,16 @@ export class Widget {
 export function render(element: HTMLElement, container: HTMLElement): void;
 
 export function createStateManager(): {
-  states: {};
-  use(key: any, value: any): any;
-  set(key: any, value: any): any;
+  states: Object;
+  use<Value>(key: any, value: Value): Value;
+  set<Value>(key: any, value: Value): Value;
 };
+
+export function createContext<
+  Values,
+  ContextFunctions = {
+    watchers: any[];
+    watch(thisElement: any): void;
+    notify(): void;
+  }
+>(values: (contextFunctions: ContextFunctions) => Values): ContextFunctions & Values;
