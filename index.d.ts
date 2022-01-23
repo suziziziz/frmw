@@ -11,6 +11,6 @@ export function render(element: HTMLElement, container: HTMLElement): void;
 
 export function createStateManager(): {
   states: {};
-  use(object: ThisType, value: any): any;
-  set(object: ThisType, value: any): any;
+  use(key: any, value: any): any;
+  set(key: any, value: any): any;
 };
