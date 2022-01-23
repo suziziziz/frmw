@@ -6,13 +6,25 @@ export class VanillaElement extends Widget {
   }
 
   build() {
+    /** @type {HTMLElement} */
     const el = document.createElement(this.props.tagName);
     this.props.children && el.append(...this.props.children);
     for (const key in this.props) {
-      if (key === "tagName" || key === "children") continue;
-      if (Object.hasOwnProperty.call(this.props, key)) {
-        const element = this.props[key];
-        el[key] = this.props[key];
+      const element = this.props[key];
+      switch (key) {
+        case "tagName":
+          break;
+        case "children":
+          break;
+        case "classname":
+          el.classList.add(element);
+          break;
+
+        default:
+          if (Object.hasOwnProperty.call(this.props, key)) {
+            el[key] = element;
+          }
+          break;
       }
     }
     return el;

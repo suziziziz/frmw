@@ -40,3 +40,17 @@ export function createStateManager() {
     },
   };
 }
+
+export function createContext(values = (contextFunctions) => ({})) {
+  return {
+    ...values({
+      watchers: [],
+      watch(thisElement) {
+        this.watchers.push(thisElement);
+      },
+      notify() {
+        this.watchers.map((value) => value.setState());
+      },
+    }),
+  };
+}
